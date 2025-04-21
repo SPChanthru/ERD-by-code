@@ -1,0 +1,32 @@
+// Online Store ERD
+digraph {
+	rankdir=LR
+	node [shape=record]
+	Customer [label="
+Customer\l
+--------------------\l
++ CustomerID (PK)\l
+Name\l
+Email\l"]
+	Order [label="
+Order\l
+--------------------\l
++ OrderID (PK)\l
+OrderDate\l
+CustomerID (FK)\l"]
+	Product [label="
+Product\l
+--------------------\l
++ ProductID (PK)\l
+ProductName\l
+Price\l"]
+	OrderDetail [label="
+OrderDetail\l
+--------------------\l
++ OrderID (FK)\l
++ ProductID (FK)\l
+Quantity\l"]
+	Customer -> Order [label="1:N"]
+	Order -> OrderDetail [label="1:N"]
+	Product -> OrderDetail [label="1:N"]
+}
